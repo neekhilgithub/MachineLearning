@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Cost Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyFNR1FVBUuI2HNIvE0NnWBrDfPFDL4Q" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        /* Style for the Predict button */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* New style for the model selection dropdown */
+        .model-selection {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Insurance Cost Prediction</h1>
+
+        <div class="form-container">
+            <form action="/predict" method="post">
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" class="form-control" name="age" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="bmi">BMI:</label>
+                    <input type="number" step="any" class="form-control" name="bmi" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="children">Number of Children:</label>
+                    <input type="number" class="form-control" name="children" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="sex">Sex (0 for Female, 1 for Male):</label>
+                    <input type="number" class="form-control" name="sex" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="smoker">Smoker (0 for No, 1 for Yes):</label>
+                    <input type="number" class="form-control" name="smoker" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="region_northwest">Region Northwest (0 or 1):</label>
+                    <input type="number" class="form-control" name="region_northwest" min="0" max="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="region_southeast">Region Southeast (0 or 1):</label>
+                    <input type="number" class="form-control" name="region_southeast" min="0" max="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="region_southwest">Region Southwest (0 or 1):</label>
+                    <input type="number" class="form-control" name="region_southwest" min="0" max="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="model">Select Model:</label>
+                    <select class="form-control model-selection" name="model" required>
+                        <option value="linear_regression">Linear Regression</option>
+                        <option value="xgboost">XGBoost</option>
+                        <option value="random_forest">Random Forest</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-X1nU3jS9K11KpGmSTVzPfUJ9z6RSixIVg+O+hLhOdI4JjxlweYcrN+yzvcXNxl"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyFNR1FVBUuI2HNIvE0NnWBrDfPFDL4Q"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
